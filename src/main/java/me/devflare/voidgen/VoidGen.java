@@ -23,6 +23,14 @@ public final class VoidGen extends JavaPlugin {
     private ChunkGenVersion chunkGenVersion;
     private EventManager eventManager;
 
+    /**
+     * Selects and returns the appropriate ChunkGenerator implementation for the given world name and generator id.
+     *
+     * @param worldName the name of the world to create the generator for
+     * @param id        the generator identifier (plugin/world generator id)
+     * @return          a ChunkGenerator instance corresponding to the detected VoidChunkGen version
+     * @throws UnsupportedOperationException if the detected ChunkGenVersion is VERSION_1_8 (VoidGen+ is not supported for server versions below 1.15)
+     */
     @Override
     public ChunkGenerator getDefaultWorldGenerator(@NotNull String worldName, String id) {
         return switch (this.chunkGenVersion) {
@@ -38,6 +46,19 @@ public final class VoidGen extends JavaPlugin {
         };
     }
 
+    /**
+     * Performs plugin startup: initializes libraries and managers, selects the VoidChunkGen version,
+     * registers the "voidgen" command executor, loads settings, and optionally runs update checks and metrics.
+     *
+     * <p>Specifically, this method:
+     * - creates FoliaLib,
+     * - determines and logs the active chunk generation version,
+     * - registers the VoidGenInfo command executor for "voidgen",
+     * - loads settings via SettingsManager,
+     * - instantiates UpdateUtils and EventManager,
+     * - if configured, runs update checks and initializes event handling,
+     * - and, if enabled, initializes metrics reporting.</p>
+     */
     @Override
     public void onEnable() {
         this.foliaLib = new FoliaLib(this);

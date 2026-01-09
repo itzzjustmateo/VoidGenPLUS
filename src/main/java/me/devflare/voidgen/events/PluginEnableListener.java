@@ -20,6 +20,14 @@ public class PluginEnableListener implements Listener {
         this.voidGen.getServer().getPluginManager().registerEvents(this, voidGen);
     }
 
+    /**
+     * Detects when Multiverse-Core is enabled and attempts to register VoidGen's generator hook with it.
+     *
+     * <p>If the hookup succeeds an info message is logged; if it fails (for example due to an incompatible
+     * Multiverse-Core version) warning messages are logged advising an update to Multiverse-Core 5.0.0 or above.</p>
+     *
+     * @param event the plugin enable event that triggered this handler
+     */
     @EventHandler(priority = EventPriority.LOW)
     public void onPluginLoad(PluginEnableEvent event) {
         if (event.getPlugin().getName().equals("Multiverse-Core")) {
