@@ -13,8 +13,8 @@ java {
 }
 
 shadowJar {
-    relocate('com.google.gson', 'de.xtkq.voidgen.libs.gson')
-    relocate('com.tcoded.folialib', "de.xtkq.voidgen.libs.folialib")
+    relocate('com.google.gson', 'me.devflare.voidgen.libs.gson')
+    relocate('com.tcoded.folialib', "me.devflare.voidgen.libs.folialib")
     archiveClassifier = ''
 }
 

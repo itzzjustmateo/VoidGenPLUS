@@ -1,9 +1,14 @@
 name: '${name}'
 version: '${version}'
 main: '${group}.${name}'
-api-version: 1.13
+api-version: 1.21
 load: STARTUP
 loadbefore: [ Multiverse-Core, Multiworld ]
 author: '${author}'
 website: '${website}'
 folia-supported: true
+commands:
+  voidgen:
+    description: Main VoidGen+ command
+    usage: /voidgen info
+    permission: voidgenplus.command.info
