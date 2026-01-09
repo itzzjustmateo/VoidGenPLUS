@@ -24,11 +24,21 @@ public class MultiverseGeneratorPluginHook implements GeneratorPlugin {
         );
     }
 
+    /**
+     * Provides a URL to the plugin's tutorial and documentation page.
+     *
+     * @return the URL of the plugin's tutorial page, or `null` if no link is available
+     */
     @Override
     public @Nullable String getInfoLink() {
         return "https://github.com/itzzjustmateo/VoidGenPLUS/blob/master/docs/tutorial.md";
     }
 
+    /**
+     * The plugin's display name.
+     *
+     * @return the plugin's display name, "VoidGen"
+     */
     @Override
     public @NotNull String getPluginName() {
         return "VoidGen";
